@@ -10,6 +10,8 @@ import { HeroSection } from "@/components/press-kit/HeroSection";
 import { SoundSection } from "@/components/press-kit/SoundSection";
 import { SpotifySection } from "@/components/press-kit/SpotifySection";
 import { VideoSection } from "@/components/press-kit/VideoSection";
+import { VisionSection } from "@/components/press-kit/VisionSection";
+import { YoutubeSection } from "@/components/press-kit/YoutubeSection";
 import { getFontPreset, getFontStyle } from "@/data/font-presets";
 import {
   createPressKitEntry,
@@ -20,7 +22,9 @@ import {
   hasGalleryContent,
   hasSoundContent,
   hasSpotifyContent,
+  hasVisionContent,
   hasVideoContent,
+  hasYoutubeContent,
 } from "@/data/press-kits";
 import { getTemplateStyle, getTemplateTheme, getTemplateVariant } from "@/data/templates";
 import {
@@ -103,7 +107,13 @@ export default async function Home({ searchParams }: HomeProps) {
         />
       )}
       {hasVideoContent(pressKitConfig) && (
-        <VideoSection videos={pressKitConfig.videos} />
+        <VideoSection videos={pressKitConfig.videos} maxItems={3} />
+      )}
+      {hasYoutubeContent(pressKitConfig) && pressKitConfig.youtube && (
+        <YoutubeSection youtube={pressKitConfig.youtube} />
+      )}
+      {hasVisionContent(pressKitConfig) && pressKitConfig.vision && (
+        <VisionSection vision={pressKitConfig.vision} />
       )}
       {hasSoundContent(pressKitConfig) && (
         <SoundSection sound={pressKitConfig.sound} />

@@ -419,9 +419,8 @@ export function HeroSection({
       <motion.div
         className="relative mx-auto max-w-7xl px-4 pb-8 md:px-6 md:pb-12"
         variants={heroContainerReveal}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.25 }}
+        initial={false}
+        animate="visible"
       >
         <div className="grid items-center gap-6 md:gap-8 lg:grid-cols-[minmax(0,0.96fr)_minmax(360px,0.86fr)] lg:gap-10">
           <motion.div className="order-1 relative z-10" variants={heroContainerReveal}>
@@ -452,7 +451,7 @@ export function HeroSection({
 
             <motion.div
               variants={heroReveal}
-              className="mt-6 flex flex-wrap items-center gap-3 md:mt-7"
+              className="mt-6 grid grid-cols-2 items-center gap-3 md:mt-7 md:flex md:flex-wrap"
             >
               {hero.ctas.map((cta) =>
                 cta.href.startsWith("/") ? (
@@ -461,8 +460,8 @@ export function HeroSection({
                     href={cta.href}
                     className={
                       cta.variant === "primary"
-                        ? "inline-flex items-center rounded-full bg-[var(--pk-accent)] px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-white shadow-[0_18px_45px_rgba(181,31,36,0.22)] transition hover:-translate-y-0.5 hover:bg-[var(--pk-accent-strong)] md:px-7"
-                        : "inline-flex items-center rounded-full border border-white/14 bg-white/[0.04] px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/82 transition hover:-translate-y-0.5 hover:border-white/22 hover:bg-white/[0.08] hover:text-white"
+                        ? "inline-flex min-w-0 items-center justify-center rounded-full bg-[var(--pk-accent)] px-4 py-3 text-center text-[10px] font-semibold uppercase tracking-[0.14em] text-white shadow-[0_18px_45px_rgba(181,31,36,0.22)] transition hover:-translate-y-0.5 hover:bg-[var(--pk-accent-strong)] md:px-7 md:text-[11px] md:tracking-[0.22em]"
+                        : "inline-flex min-w-0 items-center justify-center rounded-full border border-white/14 bg-white/[0.04] px-3 py-3 text-center text-[10px] font-semibold uppercase tracking-[0.12em] text-white/82 transition hover:-translate-y-0.5 hover:border-white/22 hover:bg-white/[0.08] hover:text-white md:px-5 md:text-[11px] md:tracking-[0.18em]"
                     }
                   >
                     {cta.label}
@@ -475,8 +474,8 @@ export function HeroSection({
                     rel={cta.external ? "noreferrer" : undefined}
                     className={
                       cta.variant === "primary"
-                        ? "inline-flex items-center rounded-full bg-[var(--pk-accent)] px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-white shadow-[0_18px_45px_rgba(181,31,36,0.22)] transition hover:-translate-y-0.5 hover:bg-[var(--pk-accent-strong)] md:px-7"
-                        : "inline-flex items-center rounded-full border border-white/14 bg-white/[0.04] px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/82 transition hover:-translate-y-0.5 hover:border-white/22 hover:bg-white/[0.08] hover:text-white"
+                        ? "inline-flex min-w-0 items-center justify-center rounded-full bg-[var(--pk-accent)] px-4 py-3 text-center text-[10px] font-semibold uppercase tracking-[0.14em] text-white shadow-[0_18px_45px_rgba(181,31,36,0.22)] transition hover:-translate-y-0.5 hover:bg-[var(--pk-accent-strong)] md:px-7 md:text-[11px] md:tracking-[0.22em]"
+                        : "inline-flex min-w-0 items-center justify-center rounded-full border border-white/14 bg-white/[0.04] px-3 py-3 text-center text-[10px] font-semibold uppercase tracking-[0.12em] text-white/82 transition hover:-translate-y-0.5 hover:border-white/22 hover:bg-white/[0.08] hover:text-white md:px-5 md:text-[11px] md:tracking-[0.18em]"
                     }
                   >
                     {cta.label}

@@ -36,7 +36,9 @@ const sectionHrefMap = {
   clubs: "#clubs",
   gallery: "#gallery",
   videos: "#videos",
+  youtube: "#youtube",
   sound: "#sound",
+  vision: "#vision",
   spotify: "#spotify",
   brands: "#brands",
   contact: "#contact",
@@ -79,12 +81,20 @@ export function hasVideoContent(config: PressKitConfig): boolean {
   return config.videos.items.length > 0;
 }
 
+export function hasYoutubeContent(config: PressKitConfig): boolean {
+  return Boolean(config.youtube && config.youtube.items.length > 0);
+}
+
 export function hasSoundContent(config: PressKitConfig): boolean {
   return Boolean(config.sound.embedUrl || config.sound.cta.href);
 }
 
 export function hasSpotifyContent(config: PressKitConfig): boolean {
   return config.spotify.playlists.length > 0;
+}
+
+export function hasVisionContent(config: PressKitConfig): boolean {
+  return Boolean(config.vision);
 }
 
 export function hasBrandsContent(config: PressKitConfig): boolean {
@@ -102,7 +112,9 @@ export function getResolvedNavigation(
 
   if (hasGalleryContent(config)) visibleSections.add(sectionHrefMap.gallery);
   if (hasVideoContent(config)) visibleSections.add(sectionHrefMap.videos);
+  if (hasYoutubeContent(config)) visibleSections.add(sectionHrefMap.youtube);
   if (hasSoundContent(config)) visibleSections.add(sectionHrefMap.sound);
+  if (hasVisionContent(config)) visibleSections.add(sectionHrefMap.vision);
   if (hasSpotifyContent(config)) visibleSections.add(sectionHrefMap.spotify);
   if (hasBrandsContent(config)) visibleSections.add(sectionHrefMap.brands);
 

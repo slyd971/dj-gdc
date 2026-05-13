@@ -1,11 +1,12 @@
 "use client";
 
-import { Pause, Play } from "lucide-react";
+import { ArrowUpRight, Pause, Play } from "lucide-react";
 import { useRef, useState } from "react";
 import type { PressKitConfig } from "@/data/config";
 
 type VideoSectionProps = {
   videos: PressKitConfig["videos"];
+  maxItems?: number;
 };
 
 const DEFAULT_VIDEO_POSTER_SRC = "/press-kit/live/live-crowd.jpg";
@@ -16,12 +17,14 @@ function getVideoAspectClass(
   return source === "youtube" ? "aspect-video" : "aspect-[9/16]";
 }
 
-export function VideoSection({ videos }: VideoSectionProps) {
+export function VideoSection({ videos, maxItems }: VideoSectionProps) {
   const videoRefs = useRef<Record<string, HTMLVideoElement | null>>({});
   const previewInitializedRefs = useRef<Record<string, boolean>>({});
   const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
   const [currentTimes, setCurrentTimes] = useState<Record<string, number>>({});
   const [durations, setDurations] = useState<Record<string, number>>({});
+  const displayedVideos =
+    typeof maxItems === "number" ? videos.items.slice(0, maxItems) : videos.items;
 
   const pauseOtherVideos = (currentVideoId: string) => {
     Object.entries(videoRefs.current).forEach(([videoId, element]) => {
@@ -133,20 +136,34 @@ export function VideoSection({ videos }: VideoSectionProps) {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgb(var(--pk-accent-rgb)/0.12),transparent_24%),radial-gradient(circle_at_80%_90%,rgba(255,255,255,0.04),transparent_22%)]" />
 
       <div className="relative mx-auto max-w-6xl">
-        <div className="mb-6 max-w-3xl md:mb-8">
-          <div className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--pk-accent)] md:mb-4 md:text-xs md:tracking-[0.35em]">
-            {videos.eyebrow}
+        <div className="mb-6 flex flex-col items-start justify-between gap-4 md:mb-8 md:flex-row md:items-end md:gap-5">
+          <div className="max-w-3xl">
+            <div className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--pk-accent)] md:mb-4 md:text-xs md:tracking-[0.35em]">
+              {videos.eyebrow}
+            </div>
+            <h2 className="text-3xl font-black uppercase leading-[0.95] md:text-6xl">
+              {videos.title}
+            </h2>
+            <p className="mt-4 max-w-2xl text-sm leading-6 text-white/62 md:mt-5 md:text-lg md:leading-8">
+              {videos.description}
+            </p>
           </div>
-          <h2 className="text-3xl font-black uppercase leading-[0.95] md:text-6xl">
-            {videos.title}
-          </h2>
-          <p className="mt-4 max-w-2xl text-sm leading-6 text-white/62 md:mt-5 md:text-lg md:leading-8">
-            {videos.description}
-          </p>
+
+          {videos.cta ? (
+            <a
+              href={videos.cta.href}
+              target={videos.cta.external ? "_blank" : undefined}
+              rel={videos.cta.external ? "noreferrer" : undefined}
+              className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/80 transition hover:text-white md:text-sm md:tracking-[0.28em]"
+            >
+              {videos.cta.label}
+              <ArrowUpRight className="h-4 w-4" />
+            </a>
+          ) : null}
         </div>
 
         <div className="grid items-stretch gap-4 md:grid-cols-3 md:gap-5">
-          {videos.items.map((video) => {
+          {displayedVideos.map((video) => {
             const effectivePoster = video.poster || DEFAULT_VIDEO_POSTER_SRC;
             const aspectClass = getVideoAspectClass(video.source);
 

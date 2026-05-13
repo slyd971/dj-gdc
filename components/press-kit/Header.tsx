@@ -26,6 +26,13 @@ export function Header({ artist, navigation, ui, homeHref = "/" }: HeaderProps) 
     stageLabelParts.slice(2).join(" • "),
   ].filter(Boolean);
   const hasLogoImage = artist.logo.src.trim().length > 0;
+  const fallbackLogoParts = artist.name
+    .replace(/-/g, " ")
+    .split(/\s+/)
+    .map((part) => part.trim())
+    .filter(Boolean);
+  const fallbackLogoPrimary = fallbackLogoParts[0] ?? artist.name;
+  const fallbackLogoSecondary = fallbackLogoParts.slice(1).join(" ");
 
   useEffect(() => {
     lastScrollY.current = window.scrollY;
@@ -89,8 +96,8 @@ export function Header({ artist, navigation, ui, homeHref = "/" }: HeaderProps) 
           isHeaderCompact ? "h-[58px] md:h-[68px]" : "h-[68px] md:h-[80px]"
         }`}
       >
-        <div className="flex min-w-0 items-center gap-3 md:gap-5">
-          <Link href={homeHref} className="shrink-0">
+        <div className="flex min-w-0 items-center gap-2 md:gap-3">
+          <Link href={homeHref} className="-ml-2 shrink-0 md:-ml-4">
             <div
               className={`flex items-center overflow-hidden transition-all duration-300 ${
                 isHeaderCompact
@@ -114,17 +121,19 @@ export function Header({ artist, navigation, ui, homeHref = "/" }: HeaderProps) 
                     }`}
                     style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
                   >
-                    Silver
+                    {fallbackLogoPrimary}
                   </span>
-                  <span
-                    className={`-mt-0.5 font-black uppercase tracking-[0.42em] text-[var(--pk-accent)] ${
-                      isHeaderCompact
-                        ? "text-[0.58rem] md:text-[0.62rem]"
-                        : "text-[0.62rem] md:text-[0.68rem]"
-                    }`}
-                  >
-                    DJ
-                  </span>
+                  {fallbackLogoSecondary ? (
+                    <span
+                      className={`-mt-0.5 font-black uppercase tracking-[0.32em] text-[var(--pk-accent)] ${
+                        isHeaderCompact
+                          ? "text-[0.58rem] md:text-[0.62rem]"
+                          : "text-[0.62rem] md:text-[0.68rem]"
+                      }`}
+                    >
+                      {fallbackLogoSecondary}
+                    </span>
+                  ) : null}
                 </div>
               )}
             </div>
@@ -153,10 +162,11 @@ export function Header({ artist, navigation, ui, homeHref = "/" }: HeaderProps) 
             className={`inline-flex rounded-full bg-[var(--pk-accent)] font-semibold uppercase text-white transition-all duration-300 hover:bg-[var(--pk-accent-strong)] lg:hidden ${
               isHeaderCompact
                 ? "px-3 py-2 text-[9px] tracking-[0.16em]"
-                : "px-4 py-2.5 text-[10px] tracking-[0.2em]"
+                : "px-3 py-2.5 text-[10px] tracking-[0.2em] sm:px-4"
             }`}
           >
-            {navigation.cta.label}
+            <span className="sm:hidden">Book</span>
+            <span className="hidden sm:inline">{navigation.cta.label}</span>
           </a>
 
           <a

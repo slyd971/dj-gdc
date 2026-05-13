@@ -4,6 +4,7 @@ export type TemplateId =
   | "red"
   | "blue"
   | "green"
+  | "yellow"
   | "orange"
   | "violet"
   | "monochrome";
@@ -57,6 +58,16 @@ export const templateThemes: Record<TemplateId, TemplateTheme> = {
     background: "#04100B",
     text: "#F4FFF8",
   },
+  yellow: {
+    id: "yellow",
+    label: "Yellow",
+    accent: "#F5C400",
+    accentStrong: "#FFD800",
+    accentSoft: "#FFE97A",
+    accentRgb: "245 196 0",
+    background: "#0B0900",
+    text: "#FFFEF0",
+  },
   orange: {
     id: "orange",
     label: "Orange",
@@ -94,6 +105,7 @@ export const templateThemeOrder: TemplateId[] = [
   "red",
   "blue",
   "green",
+  "yellow",
   "orange",
   "violet",
   "monochrome",
@@ -118,6 +130,8 @@ const templateAliases: Record<string, TemplateId> = {
   blackwhite: "monochrome",
   "black-and-white": "monochrome",
   noirblanc: "monochrome",
+  jaune: "yellow",
+  gold: "yellow",
 };
 
 export function getTemplateTheme(template?: string): TemplateTheme {

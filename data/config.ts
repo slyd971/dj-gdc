@@ -163,6 +163,27 @@ export type PressKitConfig = {
     title: string;
     description: string;
     items: VideoItem[];
+    cta?: CtaLink;
+  };
+  youtube?: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    items: YoutubeVideoItem[];
+    cta: CtaLink;
+  };
+  vision?: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    paragraphs: string[];
+    stats: StatItem[];
+    video: {
+      src: string;
+      title: string;
+      poster?: string;
+    };
+    cta?: CtaLink;
   };
   spotify: {
     eyebrow: string;

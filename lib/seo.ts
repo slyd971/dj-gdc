@@ -2,6 +2,18 @@ import type { Metadata, MetadataRoute } from "next";
 import type { ClientConfig } from "@/data/clients/types";
 import { getCanonicalUrl, getPrimaryHostname } from "@/lib/domains";
 
+function getInstagramHandle(instagramUrl?: string) {
+  if (!instagramUrl) return undefined;
+
+  const handle = instagramUrl
+    .replace(/\/+$/, "")
+    .split("/")
+    .pop()
+    ?.replace(/^@/, "");
+
+  return handle ? `@${handle}` : undefined;
+}
+
 export function buildClientMetadata(
   client: ClientConfig,
   path = "/",
@@ -66,9 +78,7 @@ export function buildClientMetadata(
       card: "summary_large_image",
       title,
       description,
-      creator: client.socials.instagram
-        ? `@${client.socials.instagram.split("/").pop()}`
-        : undefined,
+      creator: getInstagramHandle(client.socials.instagram),
       images: [imageUrl],
     },
   };
@@ -82,7 +92,7 @@ export function buildClientSitemapEntries(
     (src) => new URL(src, getCanonicalUrl(client)).toString()
   );
 
-  return [
+  const entries: MetadataRoute.Sitemap = [
     {
       url: getCanonicalUrl(client),
       lastModified: now,
@@ -98,6 +108,17 @@ export function buildClientSitemapEntries(
       images: galleryImages,
     },
   ];
+
+  if (client.pressKit.videos.items.length > 0) {
+    entries.push({
+      url: getCanonicalUrl(client, "/videos"),
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    });
+  }
+
+  return entries;
 }
 
 export function buildSiteJsonLd(client: ClientConfig) {

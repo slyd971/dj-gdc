@@ -94,6 +94,7 @@ function SmallContactCard({ method }: { method: ContactMethod }) {
 
 export function ContactSection({ contact }: ContactSectionProps) {
   const [primaryMethod, secondaryMethod, ...otherMethods] = contact.methods;
+  const useLargeCardsOnly = contact.methods.length <= 3;
 
   return (
     <section
@@ -117,10 +118,18 @@ export function ContactSection({ contact }: ContactSectionProps) {
           </div>
 
           <div className="grid gap-3 md:gap-5">
-            {primaryMethod && <LargeContactCard method={primaryMethod} />}
-            {secondaryMethod && <LargeContactCard method={secondaryMethod} />}
+            {useLargeCardsOnly ? (
+              contact.methods.map((method) => (
+                <LargeContactCard key={method.href} method={method} />
+              ))
+            ) : (
+              <>
+                {primaryMethod && <LargeContactCard method={primaryMethod} />}
+                {secondaryMethod && <LargeContactCard method={secondaryMethod} />}
+              </>
+            )}
 
-            {otherMethods.length > 0 && (
+            {!useLargeCardsOnly && otherMethods.length > 0 && (
               <div className="grid gap-3 sm:grid-cols-2 md:gap-5">
                 {otherMethods.map((method) => (
                   <SmallContactCard key={method.href} method={method} />

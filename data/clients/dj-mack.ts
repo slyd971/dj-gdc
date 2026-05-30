@@ -530,7 +530,7 @@ const mackPressKitFr: PressKitConfig = {
   },
   brands: {
     ...mackPressKitEn.brands,
-    title: "Des flyers comme preuves,\ndes scènes comme terrain de jeu.",
+    title: "Un parcours visible,\ndes événements qui parlent.",
     intro:
       "Un mur de flyers pour montrer le mouvement derrière le nom: carnavals, soirées Soca, clubs, festivals et événements culturels.",
     supportingText:

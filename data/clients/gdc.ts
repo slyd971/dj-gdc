@@ -428,7 +428,7 @@ export const gdcClient: ClientConfig = {
       "booking DJ Paris",
       "press kit DJ",
     ],
-    ogImage: "/opengraph-image",
+    ogImage: "/GDC/gallerie/gallerie-1.jpeg",
     canonical: "https://gdc.presskit.fr/",
   },
   defaultTheme: "violet",

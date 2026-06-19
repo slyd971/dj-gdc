@@ -71,8 +71,8 @@ const gdcPressKit: PressKitConfig = {
       { label: "Références", href: "#clubs" },
       { label: "Galerie", href: "#gallery" },
       { label: "Vidéos", href: "#videos" },
-      { label: "YouTube", href: "#youtube" },
-      { label: "Son", href: "#sound" },
+      { label: "Prod", href: "#youtube" },
+      { label: "SoundCloud", href: "#sound" },
       { label: "Contact", href: "#contact" },
     ],
     cta: {

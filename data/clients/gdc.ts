@@ -59,7 +59,7 @@ const gdcPressKit: PressKitConfig = {
     name: "DJ GDC",
     stageLabel: "DJ open format - Paris - France & international",
     logo: {
-      src: "",
+      src: "/GDC/logo/GDC_logo_clean_transparent.png",
       alt: "DJ GDC",
     },
   },

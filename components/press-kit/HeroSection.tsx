@@ -10,6 +10,7 @@ type HeroSectionProps = {
   heroVariants: PressKitConfig["heroVariants"];
   heroSocials?: PressKitConfig["heroSocials"];
   variant: TemplateVariantId;
+  logo?: PressKitConfig["artist"]["logo"];
 };
 
 function TikTokIcon({ className }: { className?: string }) {
@@ -180,6 +181,7 @@ export function HeroSection({
   heroVariants,
   heroSocials = [],
   variant,
+  logo,
 }: HeroSectionProps) {
   const hero = heroVariants[variant];
   const hasHeroImage = Boolean(hero.image.src);
@@ -443,11 +445,21 @@ export function HeroSection({
               </motion.div>
             )}
 
+            {logo?.src ? (
+              <motion.div variants={heroReveal} className="mb-4 md:mb-6">
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="h-20 w-auto object-contain object-left md:h-28 xl:h-36"
+                />
+              </motion.div>
+            ) : null}
+
             <motion.h1
               variants={heroReveal}
               className="max-w-4xl text-[2.55rem] font-black uppercase leading-[0.9] tracking-[-0.03em] sm:text-5xl md:text-7xl xl:text-[6.9rem]"
             >
-              {hero.title}
+              {logo?.src ? null : hero.title}
               <span className={`block text-[var(--pk-accent)] ${getHeroAccentSizeClass(hero.accent)}`}>{hero.accent}</span>
             </motion.h1>
 

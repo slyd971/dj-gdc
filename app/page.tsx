@@ -145,6 +145,7 @@ export default async function Home({ params, searchParams }: HomeProps) {
         heroVariants={pressKitConfig.heroVariants}
         heroSocials={pressKitConfig.heroSocials}
         variant={variant.id}
+        logo={pressKitConfig.artist.logo}
       />
       <AboutSection about={pressKitConfig.about} />
       <ClubsSection

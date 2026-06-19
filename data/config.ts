@@ -99,6 +99,8 @@ export type PressKitConfig = {
       src: string;
       alt: string;
       scale?: number;
+      invert?: boolean;
+      showInHero?: boolean;
     };
   };
   navigation: {

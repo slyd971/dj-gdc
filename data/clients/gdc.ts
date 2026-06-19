@@ -59,8 +59,10 @@ const gdcPressKit: PressKitConfig = {
     name: "DJ GDC",
     stageLabel: "DJ open format - Paris - France & international",
     logo: {
-      src: "/GDC/logo/GDC_logo_clean_transparent.png",
+      src: "/GDC/logo/logo_GDC_transparent.png",
       alt: "DJ GDC",
+      invert: true,
+      showInHero: false,
     },
   },
   navigation: {
@@ -90,7 +92,7 @@ const gdcPressKit: PressKitConfig = {
       title: "DJ GDC",
       accent: "EN PÉTARD",
       description:
-        "DJ basé à Paris, DJ GDC porte 20 années d'expérience dans des sets chaleureux, festifs et ouverts, de la France aux scènes internationales.",
+        "20 ans de scène. Du Dancehall au Zouk, du Hip-Hop à l'Amapiano — GDC garde la piste en pétard.",
       layout: "impact",
       image: {
         src: heroImage,

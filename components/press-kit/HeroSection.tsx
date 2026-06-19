@@ -451,6 +451,7 @@ export function HeroSection({
                   src={logo.src}
                   alt={logo.alt}
                   className="h-20 w-auto object-contain object-left md:h-28 xl:h-36"
+                  style={logo.invert ? { filter: "invert(1)" } : undefined}
                 />
               </motion.div>
             ) : null}

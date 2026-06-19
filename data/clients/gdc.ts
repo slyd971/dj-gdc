@@ -272,6 +272,7 @@ const gdcPressKit: PressKitConfig = {
         title: "Extrait live 05",
         description: "Un aperçu de l'univers festif et groovy de DJ GDC.",
         src: "/GDC/videos/video-5.mp4",
+        poster: "/GDC/videos/video-cover5.png",
         aspect: "portrait",
       },
       {

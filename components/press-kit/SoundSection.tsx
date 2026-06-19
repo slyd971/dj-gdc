@@ -50,12 +50,12 @@ export function SoundSection({ sound }: SoundSectionProps) {
                 <iframe
                   title={sound.embedTitle}
                   width="100%"
-                  height="260"
+                  height="450"
                   scrolling="no"
                   frameBorder="no"
-                  allow="autoplay"
+                  allow="autoplay; encrypted-media"
                   src={sound.embedUrl}
-                  className="rounded-xl md:h-[300px]"
+                  className="rounded-xl"
                 />
               </div>
             </div>

@@ -215,7 +215,7 @@ const yoruboyPressKit: PressKitConfig = {
   },
   videos: {
     eyebrow: "Vidéos",
-    title: "L'énergie en images.",
+    title: "Yoruboy Dj en live.",
     description:
       "Des extraits live pour découvrir Yoruboy Dj en situation, derrière les platines et au contact du public.",
     items: [

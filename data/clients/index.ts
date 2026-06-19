@@ -5,6 +5,7 @@ import {
 } from "@/data/clients/dj-mack";
 import { djFloClient, djFloEnClient } from "@/data/clients/dj-flo";
 import { djslydClient } from "@/data/clients/djslyd";
+import { gdcClient } from "@/data/clients/gdc";
 import { paulKeranneClient } from "@/data/clients/paul-keranne";
 import { silverDjClient } from "@/data/clients/silver-dj";
 import { soyumiClient } from "@/data/clients/soyumi";
@@ -22,6 +23,7 @@ export const clientRegistry = [
   djFloEnClient,
   djMackClient,
   djMackEnClient,
+  gdcClient,
 ] as const;
 
 export type ClientSlug = (typeof clientRegistry)[number]["slug"];

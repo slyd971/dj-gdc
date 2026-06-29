@@ -213,6 +213,7 @@ const gdcPressKit: PressKitConfig = {
           "Sunday Groove",
           "Balajo",
           "Tout le monde en parle",
+"Café Oz Chatelet",
           "Restaurants festifs",
         ],
       },

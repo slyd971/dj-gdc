@@ -8,7 +8,7 @@ const bondaYoutubeUrl = "https://youtu.be/Cp5KHEQrPmY";
 const soundCloudEmbedUrl =
   "https://w.soundcloud.com/player/?visual=true&url=https%3A%2F%2Fapi.soundcloud.com%2Fusers%2F5715897&show_artwork=true";
 const bookingEmail = "deejaygdc@gmail.com";
-const heroImage = "/GDC/gallerie/gallerie-1.jpeg";
+const heroImage = "/GDC/hero-gdc-copper.png";
 
 const gallery = [
   {

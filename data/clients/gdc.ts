@@ -95,7 +95,6 @@ const gdcPressKit: PressKitConfig = {
         "20 ans de scène. Du Dancehall au Zouk, du Hip-Hop à l'Amapiano — GDC garde la piste en pétard.",
       layout: "showcase",
       fullScreen: true,
-      centerContentOnMobile: true,
       image: {
         src: heroImage,
         alt: "DJ GDC hero visual",

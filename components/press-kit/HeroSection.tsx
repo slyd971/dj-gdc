@@ -340,7 +340,7 @@ export function HeroSection({
         id="home"
         className={`relative scroll-mt-24 overflow-hidden ${hero.fullScreen ? "flex min-h-svh flex-col" : "pt-16 md:pt-20"}`}
       >
-        <div className="absolute inset-0">
+        <div className={`absolute inset-x-0 bottom-0 ${hero.fullScreen ? "top-[69px] md:top-0" : "top-0"}`}>
           {hasHeroImage ? (
             <img
               src={hero.image.src}

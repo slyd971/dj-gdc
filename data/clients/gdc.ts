@@ -365,8 +365,8 @@ const gdcPressKit: PressKitConfig = {
 
 export const gdcClient: ClientConfig = {
   slug: "gdc",
-  domain: "gdc.presskit.fr",
-  vercelSubdomain: "gdc.vercel.app",
+  domain: "dj-gdc.presskit.fr",
+  vercelSubdomain: "dj-gdc.vercel.app",
   name: "DJ GDC",
   tagline: "DJ open format - Paris - France & international",
   city: "Paris",
@@ -431,7 +431,7 @@ export const gdcClient: ClientConfig = {
       "press kit DJ",
     ],
     ogImage: "/GDC/gallerie/gallerie-1.jpeg",
-    canonical: "https://gdc.presskit.fr/",
+    canonical: "https://dj-gdc.presskit.fr/",
     favicon: "/GDC/favicon/favicon.ico",
   },
   defaultTheme: "violet",

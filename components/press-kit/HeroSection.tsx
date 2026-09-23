@@ -340,7 +340,7 @@ export function HeroSection({
         id="home"
         className={`relative scroll-mt-24 overflow-hidden ${hero.fullScreen ? "flex min-h-svh flex-col" : "pt-16 md:pt-20"}`}
       >
-        <div className={`absolute inset-x-0 bottom-0 ${hero.fullScreen ? "top-[69px] md:top-0" : "top-0"}`}>
+        <div className={`absolute inset-x-0 ${hero.fullScreen ? "top-[69px] h-[80svh] md:inset-y-0 md:h-auto" : "inset-y-0"}`}>
           {hasHeroImage ? (
             <img
               src={hero.image.src}
@@ -351,14 +351,14 @@ export function HeroSection({
           ) : (
             <div className="h-full w-full bg-[var(--pk-bg)]" />
           )}
-          <div className="absolute inset-0 bg-black/60" />
+          <div className={`absolute inset-0 ${hero.fullScreen ? "bg-black/20 md:bg-black/60" : "bg-black/60"}`} />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgb(var(--pk-accent-rgb)/0.22),transparent_28%),radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.08),transparent_24%),radial-gradient(circle_at_50%_100%,rgb(var(--pk-accent-rgb)/0.12),transparent_32%)]" />
           <div className="absolute inset-0 opacity-15 [background-image:linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] [background-size:34px_34px]" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[var(--pk-bg)] via-black/30 to-black/20" />
+          <div className={`absolute inset-0 ${hero.fullScreen ? "bg-[linear-gradient(to_top,var(--pk-bg)_0%,transparent_65%)] md:bg-gradient-to-t md:from-[var(--pk-bg)] md:via-black/30 md:to-black/20" : "bg-gradient-to-t from-[var(--pk-bg)] via-black/30 to-black/20"}`} />
         </div>
 
         <div className={hero.fullScreen
-          ? "relative mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-4 pb-8 pt-24 md:px-6 md:pb-10 md:pt-28"
+          ? "relative mx-auto flex w-full max-w-7xl flex-1 flex-col justify-end px-4 pb-10 pt-[max(22rem,48svh)] md:justify-center md:px-6 md:pb-10 md:pt-28"
           : "relative mx-auto flex min-h-[90svh] max-w-7xl flex-col justify-center px-4 py-10 md:min-h-[84svh] md:px-6 md:py-12 lg:min-h-[82svh] lg:justify-start lg:pt-20 lg:pb-10"}>
           <div className="w-full max-w-3xl">
             {hasEyebrow && (

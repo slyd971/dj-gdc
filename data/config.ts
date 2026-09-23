@@ -116,6 +116,8 @@ export type PressKitConfig = {
       accent: string;
       description: string;
       layout: "impact" | "interactive" | "showcase";
+      fullScreen?: boolean;
+      centerContentOnMobile?: boolean;
       image: {
         src: string;
         alt: string;

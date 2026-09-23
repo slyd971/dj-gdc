@@ -338,7 +338,7 @@ export function HeroSection({
     return (
       <section
         id="home"
-        className="relative scroll-mt-24 overflow-hidden pt-16 md:pt-20"
+        className={`relative scroll-mt-24 overflow-hidden ${hero.fullScreen ? "flex min-h-svh flex-col" : "pt-16 md:pt-20"}`}
       >
         <div className="absolute inset-0">
           {hasHeroImage ? (
@@ -357,7 +357,9 @@ export function HeroSection({
           <div className="absolute inset-0 bg-gradient-to-t from-[var(--pk-bg)] via-black/30 to-black/20" />
         </div>
 
-        <div className="relative mx-auto flex min-h-[90svh] max-w-7xl flex-col justify-center px-4 py-10 md:min-h-[84svh] md:px-6 md:py-12 lg:min-h-[82svh] lg:justify-start lg:pt-20 lg:pb-10">
+        <div className={hero.fullScreen
+          ? "relative mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-4 pb-8 pt-24 md:px-6 md:pb-10 md:pt-28"
+          : "relative mx-auto flex min-h-[90svh] max-w-7xl flex-col justify-center px-4 py-10 md:min-h-[84svh] md:px-6 md:py-12 lg:min-h-[82svh] lg:justify-start lg:pt-20 lg:pb-10"}>
           <div className="w-full max-w-3xl">
             {hasEyebrow && (
               <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/35 px-3 py-1.5 text-[10px] uppercase tracking-[0.22em] text-white/75 backdrop-blur-md md:px-4 md:py-2 md:text-[11px] md:tracking-[0.28em]">
@@ -366,16 +368,16 @@ export function HeroSection({
               </div>
             )}
 
-            <h1 className="mt-5 text-[2.9rem] font-black uppercase leading-[0.88] tracking-tight text-white sm:text-6xl md:mt-7 md:text-7xl xl:text-[7.4rem]">
+            <h1 className={`mt-5 text-[2.9rem] font-black uppercase leading-[0.88] tracking-tight text-white sm:text-6xl md:mt-7 md:text-7xl xl:text-[7.4rem] ${hero.centerContentOnMobile ? "text-center md:text-left" : ""}`}>
               {hero.title}
               <span className="block text-[var(--pk-accent)]">{hero.accent}</span>
             </h1>
 
-            <p className="mt-7 max-w-2xl text-sm leading-6 text-white/78 md:mt-10 md:text-xl md:leading-8">
+            <p className={`mt-7 max-w-2xl text-sm leading-6 text-white/78 md:mt-10 md:text-xl md:leading-8 ${hero.centerContentOnMobile ? "mx-auto text-center md:mx-0 md:text-left" : ""}`}>
               {hero.description}
             </p>
 
-            <div className="mt-7 flex flex-wrap gap-2.5 md:mt-9 md:gap-3">
+            <div className={`mt-7 flex flex-wrap gap-2.5 md:mt-9 md:gap-3 ${hero.centerContentOnMobile ? "justify-center md:justify-start" : ""}`}>
               {hero.ctas.map((cta) => (
                 <a
                   key={cta.href}
@@ -415,6 +417,7 @@ export function HeroSection({
             ))}
           </div>
 
+          {proofline}
           {socialLinks}
         </div>
       </section>

@@ -88,12 +88,14 @@ const gdcPressKit: PressKitConfig = {
   ],
   heroVariants: {
     impact: {
-      eyebrow: "Hip-Hop - Dancehall - Amapiano - AfroHouse",
+      eyebrow: "",
       title: "DJ",
       accent: "GDC",
       description:
         "20 ans de scène. Du Dancehall au Zouk, du Hip-Hop à l'Amapiano — GDC garde la piste en pétard.",
-      layout: "impact",
+      layout: "showcase",
+      fullScreen: true,
+      centerContentOnMobile: true,
       image: {
         src: heroImage,
         alt: "DJ GDC hero visual",

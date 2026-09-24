@@ -16,6 +16,7 @@ import {
 } from "@/lib/clients/server";
 import { isLocalRequest } from "@/lib/is-local-request";
 import { buildClientMetadata } from "@/lib/seo";
+import kitStyles from "@/components/press-kit/kit.module.css";
 
 type VideosPageProps = {
   searchParams?: Promise<{
@@ -72,7 +73,7 @@ export default async function VideosPage({ searchParams }: VideosPageProps) {
   return (
     <main
       style={{ ...getTemplateStyle(theme), ...getFontStyle(fontPreset) }}
-      className="min-h-screen bg-[var(--pk-bg)] text-[var(--pk-text)]"
+      className={`${kitStyles.kit} min-h-screen bg-[var(--pk-bg)] text-[var(--pk-text)]`}
     >
       <Header
         artist={pressKitConfig.artist}

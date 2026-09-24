@@ -41,6 +41,7 @@ import {
 } from "@/lib/clients/server";
 import { isLocalRequest } from "@/lib/is-local-request";
 import { buildClientMetadata } from "@/lib/seo";
+import kitStyles from "@/components/press-kit/kit.module.css";
 
 type HomeProps = {
   params?: Promise<{
@@ -125,7 +126,7 @@ export default async function Home({ params, searchParams }: HomeProps) {
   return (
     <main
       style={{ ...getTemplateStyle(theme), ...getFontStyle(fontPreset) }}
-      className="relative overflow-x-hidden bg-[var(--pk-bg)] text-[var(--pk-text)] selection:bg-[var(--pk-accent)] selection:text-white"
+      className={`${kitStyles.kit} relative overflow-x-hidden bg-[var(--pk-bg)] text-[var(--pk-text)] selection:bg-[var(--pk-accent)] selection:text-white`}
     >
       {showLocalSwitchers && (
         <DevControlPanel

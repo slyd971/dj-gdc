@@ -16,6 +16,7 @@ import {
 } from "@/lib/clients/server";
 import { isLocalRequest } from "@/lib/is-local-request";
 import { buildClientMetadata, buildGalleryJsonLd } from "@/lib/seo";
+import kitStyles from "@/components/press-kit/kit.module.css";
 
 type GalleryPageProps = {
   searchParams?: Promise<{
@@ -69,7 +70,7 @@ export default async function GalleryPage({ searchParams }: GalleryPageProps) {
   return (
     <main
       style={{ ...getTemplateStyle(theme), ...getFontStyle(fontPreset) }}
-      className="bg-[var(--pk-bg)] px-6 py-24 text-[var(--pk-text)]"
+      className={`${kitStyles.kit} bg-[var(--pk-bg)] px-6 py-24 text-[var(--pk-text)]`}
     >
       <Header
         artist={pressKitConfig.artist}
